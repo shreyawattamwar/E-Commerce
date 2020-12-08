@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>		
+<body>
+
+	<div class="header">
+	<div class="container">
+        <div class="navbar">
+
+            <div class="logo">
+                <img src="../static/images/logo.png" alt="RedStore" width="125px">
+            </div>
+    
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="http://127.0.0.1:5000/store">Home</a></li>
+                    <li><a href="http://127.0.0.1:5000/products">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Account</a></li>
+                </ul>
+            </nav>
+            <img src="../static/images/cart.png" alt="" width="30px" height="30px">
+            <img src="../static/images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+
+         <div class="row">
+            <div class="col-3">
+                <h2>Recommendation</h2>
+            </div>
+            <div class="col-3">
+                <form action="/action_page.php">
+		<h4>Age</h4>
+		<form>
+            <div id = "#inp">
+                <input type="radio" id="18 to 30" name="age" value="18 to 30" onClick="JavaScript:radio_input('http://127.0.0.1:5000/dresses')">
+                <label for="18 to 30">18 to 30</label><br>
+                <input type="radio" id="31 to 40" name="age" value="31 to 40" onClick="JavaScript:radio_input('http://127.0.0.1:5000/jeans')">
+                <label for="31 to 40">31 to 40</label><br>
+                <input type="radio" id="41 to 50" name="age" value="41 to 50" onClick="JavaScript:radio_input('http://127.0.0.1:5000/tops')">
+                <label for="41 to 50">41 to 50</label>
+            </div>
+		</form><br><br>
+		
+            <button type="button" id="submit"> 
+                Submit 
+            </button> 
+        	</form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+	
+      
+,<script>
+    function radio_input(url)
+    {
+    // Re-direct the browser to the url value
+    window.location.href = url
+    }
+</script>
+
+<script>
+    var MenuItems = document.getElementById("MenuItems")
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+
+</body>
+</html>

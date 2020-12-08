@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>{% block heading %}Welcome{% endblock %}-mychat</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat_design.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        
+        
+      
+        <p id='heading'>Welcome to MyChat {{fname}} {{lname}}</p>
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="http://127.0.0.1:5000/store">Home</a></li>
+                <li><a href="http://127.0.0.1:5000/products">Products</a></li>
+                <li><a href="http://127.0.0.1:5000/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="dashboard">
+            <nav id="slidebar">
+                <h3>Category</h3>
+                {% for room in rooms %}
+                    <p class="select_room">{{ room|title }}</p>
+
+                {% endfor %}
+
+
+
+            </nav>
+
+            <div id="right-side">
+                <div id='display-msg-area'> 
+                    
+                </div>
+
+                
+
+            </div>
+
+        </div>
+        <div id="input-area">
+            <input type="text" id='user-msg' placeholder="Type here" autocomplete="off">
+
+            <button type="button" id='send-msg'>Send</button>
+            
+        </div>
+
+        
+
+        <span style="display: none;" id='get-username'>{{user}}</span>
+        <script type="text/javascript"  >
+        
+            const user_name = `{{user}}`;
+            
+        </script>
+
+        <script src ="{{url_for('static',filename='scripts/chat_pg.js')}}"></script>
+
+        
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+        <script src ="{{url_for('static',filename='scripts/js_11.js')}}"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,63 @@
+{% from "form_helper.html" import displayfield %}
+
+{% extends "prelogin_layout.html" %}
+
+{% block heading %}Register{% endblock %}
+
+{% block content %}
+    
+    
+    <div>
+        
+    </div>
+    <form action="{{ url_for('index')}}" method="POST">
+    <div id='registerbox'>
+
+        <img src="../static/images/logo_red.png" class='avatar'>
+        <h1>Create New Account </h1>
+            
+            {{ displayfield(form.firstname,'First Name',
+                autocomplete='off',autofocus=true) }}
+
+            {{ displayfield(form.lastname,'Last Name',
+                autocomplete='off',autofocus=true) }}
+
+            {{ displayfield(form.username,'Username',
+                autocomplete='off',autofocus=true) }}
+
+            {{ displayfield(form.password,'Password') }}
+
+            {{ displayfield(form.retype_pwd,'Confirm Password') }}
+
+            {{ displayfield(form.contactno,'Contact No.',
+                autocomplete='off',autofocus=true) }}
+
+                
+
+            <div>
+                {{form.submit_button(class_="login")}}
+            </div>
+
+
+                <p><b>Already have an account?</b></p>
+                <button type="button" id="login">Login</button>
+            
+
+    </div>
+         
+        
+
+        {{ form.csrf_token }}
+        
+    </form>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', ()=> {
+        document.querySelector('#login').onclick =  ()=>{
+             location.assign('http://127.0.0.1:5000/login');
+        }
+        
+    })
+
+    </script>
+{% endblock %}
